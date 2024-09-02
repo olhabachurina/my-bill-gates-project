@@ -1,0 +1,250 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #6a0572);
+    background-size: cover;
+    color: #2c3e50;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(230, 230, 230, 0.95));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+    max-width: 1800px;
+    width: 90%;
+    flex-wrap: wrap;
+}
+
+.article-container, .quote-section, .link-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 0.5s;
+    max-width: 100%;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 3rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: slideDown 1s ease-out forwards;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #3498db;
+}
+
+.quote-section h2, .link-section h2 {
+    color: #04065e;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    max-width: 100%;
+    height: auto;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: scaleUp 1s ease-out forwards;
+    animation-delay: 0.7s;
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    font-size: 1.8rem;
+    line-height: 2.0;
+    text-align: justify;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+.bio-section {
+    padding: 15px;
+    background-color: #f0f8ff;
+    border-left: 5px solid #3498db;
+    margin-top: 20px;
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: slideRight 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+li {
+    margin: 15px 0;
+    font-size: 1.6rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+
+li:hover {
+    background: #3498db;
+    color: #fff;
+    transform: translateX(10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    color: #030122;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.4s ease;
+    font-size: 1.6rem;
+}
+
+a:hover {
+    color: #d35400;
+    text-decoration: underline;
+}
+
+details summary {
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: #2980b9;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleUp {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Медиазапросы для адаптивности */
+
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    h1, h2 {
+        font-size: 2.5rem;
+    }
+
+    p, li, a, details summary {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    p, li, a, details summary {
+        font-size: 1.2rem;
+    }
+
+    .article-container, .quote-section, .link-section {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    p, li, a, details summary {
+        font-size: 1rem;
+    }
+
+    img {
+        width: 100%;
+    }
+}

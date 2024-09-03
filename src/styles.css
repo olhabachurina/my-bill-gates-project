@@ -1,1 +1,167 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #1a237e, #5c6bc0);
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Темная тема */
+body.dark-theme {
+  background-color: #303030 !important;
+  color: white !important;
+}
+
+body.dark-theme .container {
+  background-color: #424242 !important;
+  color: white !important;
+}
+
+body.dark-theme .mat-card {
+  background-color: #424242 !important;
+  color: white !important;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme p {
+  color: white !important;
+}
+
+body.dark-theme mat-icon {
+  color: white !important;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  color: #333333;
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: #303f9f;
+  position: relative;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+h1::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background-color: #303f9f;
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+h2::after {
+  content: '';
+  width: 40px;
+  height: 3px;
+  background-color: #303f9f;
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.bio-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.bio-photo img {
+  width: 250px;
+  height: auto;
+  border-radius: 16px;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень для изображения */
+}
+
+/* В темной теме добавляем светлый фон к контейнеру с изображением */
+body.dark-theme .bio-photo {
+  background-color: #ffffff1a; /* Полупрозрачный белый фон */
+  padding: 10px;
+  border-radius: 16px;
+}
+a {
+  color: #1a73e8; /* Цвет ссылок в светлой теме */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Стили для ссылок в темной теме */
+body.dark-theme a {
+  color: #4fc3f7; /* Светло-голубой цвет для ссылок в темной теме */
+}
+
+body.dark-theme a:hover {
+  color: #82b1ff; /* Цвет ссылок при наведении в темной теме */
+  text-decoration: underline;
+}
+h5 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Цвет для светлой темы */
+h5 {
+  color: #d32f2f; /* Яркий красный цвет для светлой темы */
+}
+
+/* Цвет для темной темы */
+body.dark-theme h5 {
+  color: #ff7043; /* Яркий оранжевый цвет для темной темы */
+}
+#theme-toggle-button {
+  position: fixed; /* Используем fixed для привязки кнопки к экрану */
+  top: 20px;
+  right: 20px;
+  z-index: 1000; /* Убедитесь, что кнопка находится поверх других элементов */
+  background-color: transparent; /* Сделайте фон прозрачным для иконки */
+  border: none; /* Убираем границу */
+  cursor: pointer; /* Добавляем указатель курсора */
+  padding: 10px; /* Добавляем отступы для кликабельной области */
+  border-radius: 50%; /* Скругляем углы */
+}
+
+/* Дополнительные стили для темной темы */
+body.dark-theme #theme-toggle-button {
+  color: #ffffff; /* Светлый цвет для иконки в темной теме */
+}

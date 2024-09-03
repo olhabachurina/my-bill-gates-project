@@ -1,0 +1,87 @@
+.article-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    color: #333333;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Стили для заголовков */
+  .article-container h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    color: #303f9f;
+    margin-bottom: 20px;
+  }
+  
+  .article-container h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    color: #303f9f;
+    margin-bottom: 20px;
+  }
+  
+  .article-container h2::after {
+    content: '';
+    width: 40px;
+    height: 3px;
+    background-color: #303f9f;
+    display: block;
+    margin: 10px auto;
+    border-radius: 2px;
+  }
+  
+  /* Стили для изображения */
+  .article-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+  
+  /* Стили для секции с биографией */
+  .bio-section {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .bio-section p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  /* Стили для ссылки */
+  .bio-section a {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  
+  .bio-section a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Стили для элемента details */
+  details {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  details summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  details[open] summary::before {
+    content: "▼ ";
+  }
+  
+  details:not([open]) summary::before {
+    content: "▶ ";
+  }

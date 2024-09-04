@@ -1,57 +1,61 @@
 <body>
   <div class="container">
-    <!-- Page Title -->
-    <h1>Bill Gates Wisdom: Quotes, Biography, and Resources</h1>
-     <!-- Theme Toggle Button -->
-     <button mat-icon-button color="primary" (click)="toggleTheme()">
+    <h1 bold [selectedSize]="'60px'" [defaultSize]="'55px'">
+      Bill Gates Wisdom: Quotes, Biography, and Resources
+    </h1>
+    
+  
+    <button mat-icon-button color="primary" (click)="toggleTheme()">
       <mat-icon>{{ isDarkTheme ? 'brightness_7' : 'brightness_2' }}</mat-icon>
     </button>
-    <div class="bio-section">
-      <div class="bio-photo">
-        <!-- Bill Gates' photo -->
-        
-      </div>
-      <div class="bio-text">
+
+    
+    <div class="button-section">
+      <button mat-button (click)="setActiveSection('quotes')">Quotes</button>
+      <button mat-button (click)="setActiveSection('biography')">Biography</button>
+      <button mat-button (click)="setActiveSection('resources')">Resources</button>
+    </div>
+
+   
+    <div class="content-section">
+     
+      <div *ngIf="activeSection === 'quotes'">
+        <app-quotes [quotes]="quotes"></app-quotes>
+
        
-        <!-- Placeholder for biography content -->
+        <h2>Add a New Quote</h2>
+        <div class="input-section">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Add a new quote</mat-label>
+              <input matInput [(ngModel)]="newQuote">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="addQuote()">Add Quote</button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div *ngIf="activeSection === 'biography'">
         <app-biography></app-biography>
       </div>
-    </div>
 
-    <!-- Quotes Section -->
-    <h2>Bill Gates Quotes</h2>
-    <app-quotes [quotes]="quotes"></app-quotes>
-    <div class="input-section">
-      <div>
-        <mat-form-field appearance="fill">
-          <mat-label>Add a new quote</mat-label>
-          <input matInput [(ngModel)]="newQuote">
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="addQuote()">Add Quote</button>
+      
+      <div *ngIf="activeSection === 'resources'">
+        <app-resources [resources]="resources"></app-resources>
+
+        
+        <h2>Add New Resource</h2>
+        <div class="input-section">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Add a new resource</mat-label>
+              <input matInput [(ngModel)]="newResource">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="addResource()">Add Resource</button>
+          </div>
+        </div>
       </div>
     </div>
-    
-    <!-- Resources Section -->
-    <h2>Resources</h2>
-    <app-resources [resources]="resources"></app-resources>
-    <div class="input-section">
-      <div>
-        <mat-form-field appearance="fill">
-          <mat-label>Add a new resource</mat-label>
-          <input matInput [(ngModel)]="newResource">
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="addResource()">Add Resource</button>
-      </div>
-    </div>
-    
-   
   </div>
-  <script>
-    const toggleThemeButton = document.getElementById('toggle-theme-button');
-    const bodyElement = document.body;
-
-    toggleThemeButton.addEventListener('click', () => {
-      bodyElement.classList.toggle('dark-theme');
-    });
-  </script>
 </body>

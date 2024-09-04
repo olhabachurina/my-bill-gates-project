@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { QuotesComponent } from './quotes/quotes.component';
 import { BiographyComponent } from './biography/biography.component';
 import { ResourcesComponent } from './resources/resources.component';
+import { BoldDirective } from './bold.directive'; // Импорт директивы
 
 @Component({
   selector: 'app-root',
@@ -21,13 +22,19 @@ import { ResourcesComponent } from './resources/resources.component';
     MatIconModule,
     QuotesComponent,
     BiographyComponent,
-    ResourcesComponent
+    ResourcesComponent,
+    BoldDirective // Добавляем директиву
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isDarkTheme: boolean = false;  
+  isDarkTheme: boolean = false;
+  activeSection: string | null = null;
+
+  setActiveSection(section: string) {
+    this.activeSection = section;
+  }
 
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;
@@ -42,7 +49,7 @@ export class AppComponent {
     '“Success is a lousy teacher. It seduces smart people into thinking they can’t lose.”',
     '“Be nice to nerds. Chances are you’ll end up working for one.”'
   ];
-  
+
   resources: string[] = [
     'https://www.gatesnotes.com/',
     'https://www.microsoft.com/',

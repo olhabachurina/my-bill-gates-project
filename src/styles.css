@@ -1,36 +1,65 @@
 body {
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(135deg, #1a237e, #5c6bc0);
-  color: #ffffff;
+  color: #333333;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-/* Темная тема */
 body.dark-theme {
   background-color: #303030 !important;
-  color: white !important;
+  color: #ffffff !important;
 }
 
+/* Фон и цвет текста контейнера при темной теме */
 body.dark-theme .container {
   background-color: #424242 !important;
-  color: white !important;
+  color: #ffffff !important;
 }
 
 body.dark-theme .mat-card {
   background-color: #424242 !important;
-  color: white !important;
+  color: #ffffff !important;
 }
 
 body.dark-theme h1,
 body.dark-theme h2,
 body.dark-theme p {
-  color: white !important;
+  color: #ffffff !important;
 }
 
 body.dark-theme mat-icon {
-  color: white !important;
+  color: #ffffff !important;
+}
+
+/* Стили для элементов biography */
+body.dark-theme details {
+  color: #e0e0e0; /* Цвет текста в блоке деталей для лучшей читабельности */
+}
+
+body.dark-theme details summary {
+  color: #ff7043; /* Цвет заголовка для темной темы */
+}
+
+/* Изменение цвета текста биографии при раскрытии */
+body.dark-theme details[open] p {
+  color: #e0e0e0; /* Текст биографии в белом цвете для лучшей контрастности */
+}
+
+/* Основное изменение - фон биографии */
+body.dark-theme .bio-section {
+  background-color: #333333; /* Темный фон для биографии в темной теме */
+  padding: 10px;
+  border-radius: 8px;
+  color: #e0e0e0; /* Установим цвет текста белым для хорошей контрастности */
+}
+
+body .bio-section {
+  background-color: rgba(255, 255, 255, 0.9); /* Светлый фон для биографии в светлой теме */
+  padding: 10px;
+  border-radius: 8px;
+  color: #333333; /* Установим цвет текста темным для светлой темы */
 }
 
 .container {
@@ -106,17 +135,17 @@ h2::after {
   height: auto;
   border-radius: 16px;
   margin-top: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень для изображения */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
 }
 
-/* В темной теме добавляем светлый фон к контейнеру с изображением */
 body.dark-theme .bio-photo {
-  background-color: #ffffff1a; /* Полупрозрачный белый фон */
+  background-color: #ffffff1a; 
   padding: 10px;
   border-radius: 16px;
 }
+
 a {
-  color: #1a73e8; /* Цвет ссылок в светлой теме */
+  color: #1a73e8; 
   text-decoration: none;
 }
 
@@ -124,44 +153,146 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Стили для ссылок в темной теме */
 body.dark-theme a {
-  color: #4fc3f7; /* Светло-голубой цвет для ссылок в темной теме */
+  color: #4fc3f7; 
 }
 
 body.dark-theme a:hover {
-  color: #82b1ff; /* Цвет ссылок при наведении в темной теме */
+  color: #82b1ff; 
   text-decoration: underline;
 }
+
 h5 {
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
   margin-bottom: 20px;
   text-align: center;
+  color: #d32f2f; 
 }
 
-/* Цвет для светлой темы */
-h5 {
-  color: #d32f2f; /* Яркий красный цвет для светлой темы */
-}
-
-/* Цвет для темной темы */
 body.dark-theme h5 {
-  color: #ff7043; /* Яркий оранжевый цвет для темной темы */
+  color: #ff7043; 
 }
+
 #theme-toggle-button {
-  position: fixed; /* Используем fixed для привязки кнопки к экрану */
+  position: fixed; 
   top: 20px;
   right: 20px;
-  z-index: 1000; /* Убедитесь, что кнопка находится поверх других элементов */
-  background-color: transparent; /* Сделайте фон прозрачным для иконки */
-  border: none; /* Убираем границу */
-  cursor: pointer; /* Добавляем указатель курсора */
-  padding: 10px; /* Добавляем отступы для кликабельной области */
-  border-radius: 50%; /* Скругляем углы */
+  z-index: 1000; 
+  background-color: transparent; 
+  border: none; 
+  cursor: pointer; 
+  padding: 10px; 
+  border-radius: 50%; 
 }
 
-/* Дополнительные стили для темной темы */
 body.dark-theme #theme-toggle-button {
-  color: #ffffff; /* Светлый цвет для иконки в темной теме */
+  color: #ffffff; 
+}
+
+/* Стили для кнопок секций */
+.button-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.button-section button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #1a73e8;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-section button:hover {
+  background-color: #1565c0;
+}
+
+.button-section button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme .button-section button {
+  background-color: #4fc3f7;
+  color: white;
+}
+
+body.dark-theme .button-section button:hover {
+  background-color: #29b6f6;
+}
+
+.button-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.button-section button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #1a73e8;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1 1 100px;
+  max-width: 200px;
+}
+
+.button-section button:hover {
+  background-color: #1565c0;
+}
+
+/* Адаптация кнопок для маленьких экранов */
+@media (max-width: 600px) {
+  .button-section {
+    flex-direction: column;
+  }
+
+  .button-section button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Стили для контент-секции */
+.content-section {
+  margin-top: 20px;
+}
+
+.input-section {
+  margin-top: 20px;
+}
+
+#theme-toggle-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,60 +1,52 @@
 <body>
   <div class="container">
+   
     <h1 bold [selectedSize]="'60px'" [defaultSize]="'55px'">
       Bill Gates Wisdom: Quotes, Biography, and Resources
     </h1>
-    
-  
+    <!-- Theme Toggle Button -->
     <button mat-icon-button color="primary" (click)="toggleTheme()">
       <mat-icon>{{ isDarkTheme ? 'brightness_7' : 'brightness_2' }}</mat-icon>
     </button>
 
-    
+    <!-- Section Buttons -->
     <div class="button-section">
       <button mat-button (click)="setActiveSection('quotes')">Quotes</button>
       <button mat-button (click)="setActiveSection('biography')">Biography</button>
       <button mat-button (click)="setActiveSection('resources')">Resources</button>
     </div>
 
-   
+    <!-- Conditional Content Display -->
     <div class="content-section">
-     
+      <!-- Quotes Section -->
       <div *ngIf="activeSection === 'quotes'">
         <app-quotes [quotes]="quotes"></app-quotes>
 
-       
+        <!-- Input for Adding Quotes -->
         <h2>Add a New Quote</h2>
-        <div class="input-section">
-          <div>
-            <mat-form-field appearance="fill">
-              <mat-label>Add a new quote</mat-label>
-              <input matInput [(ngModel)]="newQuote">
-            </mat-form-field>
-            <button mat-raised-button color="primary" (click)="addQuote()">Add Quote</button>
-          </div>
-        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Add a new quote</mat-label>
+          <input matInput [(ngModel)]="newQuote">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addQuote()">Add Quote</button>
       </div>
 
-      
+      <!-- Biography Section -->
       <div *ngIf="activeSection === 'biography'">
         <app-biography></app-biography>
       </div>
 
-      
+      <!-- Resources Section -->
       <div *ngIf="activeSection === 'resources'">
         <app-resources [resources]="resources"></app-resources>
 
-        
-        <h2>Add New Resource</h2>
-        <div class="input-section">
-          <div>
-            <mat-form-field appearance="fill">
-              <mat-label>Add a new resource</mat-label>
-              <input matInput [(ngModel)]="newResource">
-            </mat-form-field>
-            <button mat-raised-button color="primary" (click)="addResource()">Add Resource</button>
-          </div>
-        </div>
+        <!-- Input for Adding Resources -->
+        <h2>Add a New Resource</h2>
+        <mat-form-field appearance="fill">
+          <mat-label>Add a new resource</mat-label>
+          <input matInput [(ngModel)]="newResource">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addResource()">Add Resource</button>
       </div>
     </div>
   </div>

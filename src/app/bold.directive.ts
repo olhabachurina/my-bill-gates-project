@@ -1,38 +1,25 @@
-import { Directive, HostListener, Input, HostBinding, OnInit } from '@angular/core';
+import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[bold]',
-  standalone: true
+  standalone: true // Делаем директиву автономной
 })
 export class BoldDirective implements OnInit {
+  @Input() selectedSize: string = '60px';
+  @Input() defaultSize: string = '55px';
 
-  @Input() selectedSize = "18px";
-  @Input() defaultSize = "16px";
-
-  private fontSize: string = '';
-  private fontWeight = "normal";
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
-    this.fontSize = this.defaultSize;
-  }
+    this.renderer.setStyle(this.el.nativeElement, 'font-size', this.defaultSize);
+    this.renderer.setStyle(this.el.nativeElement, 'font-weight', 'bold');
 
-  constructor() {}
+    this.el.nativeElement.addEventListener('mouseenter', () => {
+      this.renderer.setStyle(this.el.nativeElement, 'font-size', this.selectedSize);
+    });
 
-  @HostBinding('style.fontSize') get getFontSize() {
-    return this.fontSize;
-  }
-
-  @HostBinding('style.fontWeight') get getFontWeight() {
-    return this.fontWeight;
-  }
-
-  @HostListener('mouseenter') onMouseEnter() {
-    this.fontSize = this.selectedSize;
-    this.fontWeight = 'bold';
-  }
-
-  @HostListener('mouseleave') onMouseLeave() {
-    this.fontSize = this.defaultSize;
-    this.fontWeight = 'normal';
+    this.el.nativeElement.addEventListener('mouseleave', () => {
+      this.renderer.setStyle(this.el.nativeElement, 'font-size', this.defaultSize);
+    });
   }
 }
